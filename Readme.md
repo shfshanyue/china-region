@@ -1,52 +1,98 @@
-# 中国省市县行政区代码
+# 中国行政区划代码
+
+根据国家标准《中华人民共和国行政区划代码》即 GB2260 标准制定，用以查看各个省地县的行政区划代码，并支持多级联动查询
+
+1. 丰富的 API，满足多种级联查询
+1. 较小的 npm 包体积
 
 ## API
 
-### cn.get(code)
+``` js
+const cn = require('china-region')
+```
+
+### cn.getCodeByProvinceName(name)
+
+根据升级行政区名称或简称获取行政区划代码
+
+``` js
+// '140000'
+cn.getCodeByProvinceName('山西省')
+
+// '140000'
+cn.getCodeByProvinceName('山西')
+
+// '140000'
+cn.getCodeByProvinceName('晋')
+```
+
+### cn.info(code)
 
 返回某个行政区号代表的行政区
 
 ``` js
 // { name: '洪洞县', code: '141024', prefecture: '临汾市', province: '山西省' }
 cn.get('141024')
+
+// { name: '山西省', code: '140000', prefecture: null, province: null }
+cn.get('140000')
 ```
 
-### cn.provinces()
+### cn.getProvinces()
 
 返回中国所有的省级行政区
 
 ``` js
-cn.provinces()
+cn.getProvinces()
 ```
 
-### cn.prefectures(code)
+### cn.getPrefectures(code)
+
+返回中国/某省级行政区下所有的地级行政区
 
 code 指行政区代码，code 为空时返回中国所有的地级行政区，不为空时返回该省级行政区的所有地级行政区
 
 ``` js
 // 列出中国所有的地级行政区
-cn.prefectures()
+cn.getPrefectures()
 
 // 以下均列出 10 所代表省下辖的所有地级行政区
-cn.prefectures('100000')
-cn.prefectures('101000')
-cn.prefectures('101010')
+cn.getPrefectures('100000')
+cn.getPrefectures('101000')
+cn.getPrefectures('101010')
 ```
 
-### cn.counties(code)
+### cn.getCounties(code)
+
+返回中国/某省级行政区/某地级行政区下所有的县级行政区
 
 code 指行政区代码，code 为空时返回中国所有的县级行政区，不为空时返回该省/市级行政区的所有地级行政区
 
 ``` js
 // 列出中国所有的县级行政区
-cn.counties()
+cn.getCounties()
 
 // 列出 10 所代表省下辖的所有县级行政区
-cn.prefectures('100000')
+cn.getCounties('100000')
 
 // 列出 1010 所代表地下辖的所有县级行政区
-cn.prefectures('101000')
+cn.getCounties('101000')
 ```
+
+### cn.getSpecialConties(code)
+
+返回中国/某省级行政区下所有的省直管县。如海南省的各县和县级市、湖北省的仙桃市、潜江市、天门市、神农架林区、河南省的济源市、新疆的数个由自治区和新疆兵团双重领导的县级市等
+
+code 指行政区代码，code 为空时返回中国所有的县级行政区，不为空时返回该省/市级行政区的所有地级行政区
+
+``` js
+// 列出中国所有的省直管县
+cn.getSpecialCounties()
+
+// 列出 10 所代表省下辖的所有省直管县
+cn.getSpecialCounties('100000')
+```
+
 ## 术语
 
 > 关于行政区级别翻译参考知乎两篇关于地名翻译的文章
@@ -57,6 +103,7 @@ cn.prefectures('101000')
 + `province`，省级行政区，包括直辖市、省、自治区、特别行政区。
 + `prefecture`，地级行政区，包括地级市、地区、自治州、盟。
 + `county`，县级行政区，包括市辖区、县级市、县、自治县、旗、自治旗、特区、林区。
++ `specialCounty`，省直管县级行政区，如湖北的仙桃、潜江与天门
 
 ## 数据获取
 
@@ -69,3 +116,4 @@ cn.prefectures('101000')
 + [china-area-data](https://github.com/airyland/china-area-data)
 + [province-city-china](https://github.com/uiwjs/province-city-china)
 + [GB2260](https://github.com/cn/GB2260)
+
