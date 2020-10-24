@@ -12,11 +12,13 @@
   },
   "devDependencies": {
     "axios": "^0.20.0",
-    "cheerio": "^1.0.0-rc.3"
+    "cheerio": "^1.0.0-rc.3",
+    "typescript": "^4.0.3"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "fetch": "node script/fetch.js"
+    "fetch": "node script/fetch.js",
+    "build": "tsc"
   },
   "repository": {
     "type": "git",
