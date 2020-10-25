@@ -1,6 +1,6 @@
 # 中国行政区划代码
 
-[![npm version](https://img.shields.io/npm/v/@shanyue/promise-utils.svg?style=flat-square)](https://www.npmjs.org/package/china-region)
+[![npm version](https://img.shields.io/npm/v/china-region.svg?style=flat-square)](https://www.npmjs.org/package/china-region)
 [![install size](https://packagephobia.now.sh/badge?p=china-region)](https://packagephobia.now.sh/result?p=china-region)
 [![npm downloads](https://img.shields.io/npm/dw/china-region.svg?style=flat-square)](http://npm-stat.com/charts.html?package=china-region)
 

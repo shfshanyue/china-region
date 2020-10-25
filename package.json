@@ -6,7 +6,12 @@
   "engines": {
     "node": ">=8.0.0"
   },
+  "files": [
+    "dist"
+  ],
   "devDependencies": {
+    "@types/chai": "^4.2.14",
+    "@types/mocha": "^8.0.3",
     "axios": "^0.20.0",
     "chai": "^4.2.0",
     "cheerio": "^1.0.0-rc.3",
@@ -37,9 +42,5 @@
     "省地市联动"
   ],
   "author": "shanyue",
-  "license": "ISC",
-  "dependencies": {
-    "@types/chai": "^4.2.14",
-    "@types/mocha": "^8.0.3"
-  }
+  "license": "ISC"
 }
