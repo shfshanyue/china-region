@@ -1,9 +1,19 @@
 # 中国行政区划代码
 
+[![npm version](https://img.shields.io/npm/v/@shanyue/promise-utils.svg?style=flat-square)](https://www.npmjs.org/package/china-region)
+[![install size](https://packagephobia.now.sh/badge?p=china-region)](https://packagephobia.now.sh/result?p=china-region)
+[![npm downloads](https://img.shields.io/npm/dw/china-region.svg?style=flat-square)](http://npm-stat.com/charts.html?package=china-region)
+
 根据国家标准《中华人民共和国行政区划代码》即 GB2260 标准制定，用以查看各个省地县的行政区划代码，并支持多级联动查询
 
 1. 丰富的 API，满足多种级联查询
 1. 较小的 npm 包体积
+
+## Install
+
+``` bash
+$ npm install chaina-region
+```
 
 ## API
 
