@@ -26,20 +26,39 @@ export function getProvinces (): Region[] {
   return region.filter(([code]) => code.endsWith('0000')).map(([code, name]) => ({ code, name }))
 }
 
-export function getCodeByProvinceName (name: string) {
-  return provinceByAlias[name] || provinceByName[name] || null
+export function getCodeByProvinceName (name: string): string | null {
+  const alias = name.slice(0, 2)
+  return provinceByAlias[alias]?.[0] || provinceByName[alias]?.[0] || null
 }
 
-export function getPrefectures (provinceCode: string): Region[] {
+export function getPrefectures (provinceCode?: string): Region[] {
   return region
-    .filter(([code]) => code.endsWith('00'))
+    // 最后两位是 00，而中间两位不是 00 的是为地级行政区
+    .filter(([code]) => code.endsWith('00') && code.slice(2, 4) !== '00')
     .filter(([code]) => provinceCode ? code.slice(0, 2) === provinceCode.slice(0, 2) : true)
     .map(([code, name]) => ({ code, name }))
 }
 
-export function getConties (regionCode: string): Region[] {
+export function getCounties (regionCode?: string): Region[] {
   return region
     .filter(([code]) => !code.endsWith('00'))
+    .filter(([code]) => {
+      if (!regionCode) {
+        return true
+      }
+      if (regionCode.slice(2, 4) === '00') {
+        return code.slice(0, 2) ===regionCode.slice(0, 2)
+      }
+      return code.slice(0, 4) ===regionCode.slice(0, 4)
+    })
+    .map(([code, name]) => ({ code, name }))
+}
+
+// 省管市
+export function getSpecialCounties (regionCode?: string): Region[] {
+  return region
+    // 省管市中间区号为 00
+    .filter(([code]) => !code.endsWith('00') && code.slice(2, 4) === '90')
     .filter(([code]) => {
       if (!regionCode) {
         return true
