@@ -12,13 +12,30 @@
 ## Install
 
 ``` bash
-$ npm install chaina-region
+$ npm install china-region
 ```
 
 ## API
 
 ``` js
 const cn = require('china-region')
+
+const code = cn.getCodeByProvinceName('晋')
+
+const cities = cn.getPrefectures(code)
+// [
+//   { code: '140100', name: '太原市' },
+//   { code: '140200', name: '大同市' },
+//   { code: '140300', name: '阳泉市' },
+//   { code: '140400', name: '长治市' },
+//   { code: '140500', name: '晋城市' },
+//   { code: '140600', name: '朔州市' },
+//   { code: '140700', name: '晋中市' },
+//   { code: '140800', name: '运城市' },
+//   { code: '140900', name: '忻州市' },
+//   { code: '141000', name: '临汾市' },
+//   { code: '141100', name: '吕梁市' }
+// ]
 ```
 
 ### cn.getCodeByProvinceName(name)
