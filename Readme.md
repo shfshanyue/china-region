@@ -65,12 +65,12 @@ cn.info('141024')
 cn.info('140000')
 ```
 
-### cn.getAllRegion()
+### cn.getAllRegions()
 
 返回中国所有的各级行政区
 
 ``` js
-cn.getAllRegion()
+cn.getAllRegions()
 ```
 
 ### cn.getProvinces()

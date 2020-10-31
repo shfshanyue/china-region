@@ -22,7 +22,7 @@ function keyBy<T> (collection: T[], f: any): Dictionary<T> {
   }, {} as any)
 }
 
-export function getAllRegion (): Region[] {
+export function getAllRegions (): Region[] {
   return region.map(([code, name]) => ({ code, name }))
 }
 
