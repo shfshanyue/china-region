@@ -22,6 +22,10 @@ function keyBy<T> (collection: T[], f: any): Dictionary<T> {
   }, {} as any)
 }
 
+export function getAllRegion (): Region[] {
+  return region.map(([code, name]) => ({ code, name }))
+}
+
 export function getProvinces (): Region[] {
   return region.filter(([code]) => code.endsWith('0000')).map(([code, name]) => ({ code, name }))
 }

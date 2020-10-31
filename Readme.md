@@ -59,10 +59,18 @@ cn.getCodeByProvinceName('晋')
 
 ``` js
 // { name: '洪洞县', code: '141024', prefecture: '临汾市', province: '山西省' }
-cn.get('141024')
+cn.info('141024')
 
 // { name: '山西省', code: '140000', prefecture: null, province: null }
-cn.get('140000')
+cn.info('140000')
+```
+
+### cn.getAllRegion()
+
+返回中国所有的各级行政区
+
+``` js
+cn.getAllRegion()
 ```
 
 ### cn.getProvinces()
