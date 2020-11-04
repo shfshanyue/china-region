@@ -58,7 +58,7 @@ describe('China Region', function () {
   it('getCounties', async () => {
     const counties = getCounties()
 
-    expect(counties).to.length(2845)
+    expect(counties).to.length(2844)
     expect(counties).to.deep.include({
       code: '110108',
       name: '海淀区'

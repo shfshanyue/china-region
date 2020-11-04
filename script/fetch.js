@@ -1,6 +1,9 @@
 const axios = require('axios')
 const cheerio = require('cheerio')
 const fs = require('fs')
+const _ = require('lodash')
+
+const { deprecatedRegion, newRegion } = require('./special')
 
 async function getCities() {
   const url = 'http://www.mca.gov.cn//article/sj/xzqh/2020/2020/2020092500801.html'
@@ -26,9 +29,9 @@ async function main() {
     return dict
   }, {})
 
-  console.log(cityDict)
+  const newCities = _.omit({ ...cityDict, ...newRegion }, Object.keys(deprecatedRegion))
 
-  fs.writeFileSync('./data/region.json', JSON.stringify(cityDict, null, 2))
+  fs.writeFileSync('./data/region.json', JSON.stringify(newCities, null, 2))
 }
 
 main()
