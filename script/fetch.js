@@ -4,10 +4,10 @@ const fs = require('fs')
 const _ = require('lodash')
 
 const { deprecatedRegion, newRegion } = require('./special')
+const URL = 'http://preview.www.mca.gov.cn/article/sj/xzqh/2020/2020/202101041104.html'
 
 async function getCities() {
-  const url = 'http://www.mca.gov.cn//article/sj/xzqh/2020/2020/2020092500801.html'
-  const { data } = await axios.get(url, {
+  const { data } = await axios.get(URL, {
     responseType: 'text'
   })
 
