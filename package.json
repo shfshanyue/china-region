@@ -23,6 +23,7 @@
   "scripts": {
     "test": "mocha test.ts -r ts-node/register",
     "fetch": "node script/fetch.js",
+    "prepublishOnly": "npm run build",
     "build": "tsc"
   },
   "repository": {
