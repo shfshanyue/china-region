@@ -1,10 +1,10 @@
 const axios = require('axios')
-const cheerio = require('cheerio')
+const cheerio = require('cheerio').default
 const fs = require('fs')
 const _ = require('lodash')
 
 const { deprecatedRegion, newRegion } = require('./special')
-const URL = 'http://preview.www.mca.gov.cn/article/sj/xzqh/2020/2020/202101041104.html'
+const URL = 'http://www.mca.gov.cn/article/sj/xzqh/2020/20201201.html'
 
 async function getCities() {
   const { data } = await axios.get(URL, {
