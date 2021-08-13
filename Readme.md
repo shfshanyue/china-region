@@ -47,13 +47,15 @@ const cities = cn.getPrefectures(code)
 根据升级行政区名称或简称获取行政区划代码
 
 ``` js
-// '140000'
+//=> '140000'
 cn.getCodeByProvinceName('山西省')
 
-// '140000'
+// 通过二字省名来定位省份
+//=> '140000'
 cn.getCodeByProvinceName('山西')
 
-// '140000'
+// 通过省简称来定位省份
+//=> '140000'
 cn.getCodeByProvinceName('晋')
 ```
 
@@ -83,6 +85,17 @@ cn.getAllRegions()
 
 ``` js
 cn.getProvinces()
+
+// [
+//   '京', '津', '冀', '晋', '蒙',
+//   '辽', '吉', '黑', '沪', '苏',
+//   '浙', '皖', '闽', '赣', '鲁',
+//   '豫', '鄂', '湘', '粤', '桂',
+//   '琼', '渝', '川', '贵', '云',
+//   '藏', '陕', '甘', '青', '宁',
+//   '新', '台', '港', '澳'
+// ]
+cn.getProvinces().map(x => x.alias)
 ```
 
 ### cn.getPrefectures(code)

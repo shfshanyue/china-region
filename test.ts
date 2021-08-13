@@ -27,7 +27,8 @@ describe('China Region', function () {
     expect(provinces).to.length(34)
     expect(provinces).to.deep.include({
       code: '140000',
-      name: '山西省'
+      name: '山西省',
+      alias: '晋'
     })
   })
 

@@ -26,8 +26,14 @@ export function getAllRegions (): Region[] {
   return region.map(([code, name]) => ({ code, name }))
 }
 
-export function getProvinces (): Region[] {
-  return region.filter(([code]) => code.endsWith('0000')).map(([code, name]) => ({ code, name }))
+export function getProvinces (): (Region & { alias: string })[] {
+  return province.map(p => {
+    return {
+      code: p[0],
+      name: p[1],
+      alias: p[2]
+    }
+  })
 }
 
 export function getCodeByProvinceName (name: string): string | null {
