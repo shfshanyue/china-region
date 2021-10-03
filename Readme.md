@@ -1,8 +1,8 @@
 # 中国行政区划代码
 
 [![npm version](https://img.shields.io/npm/v/china-region.svg?style=flat-square)](https://www.npmjs.org/package/china-region)
-[![mingzip size](https://badgen.net/bundlephobia/minzip/china-region)](https://npm.devtool.tech/china-region)
 [![npm downloads](https://img.shields.io/npm/dw/china-region.svg?style=flat-square)](http://npm-stat.com/charts.html?package=china-region)
+[![mingzip size](https://badgen.net/bundlephobia/minzip/china-region)](https://npm.devtool.tech/china-region)
 
 根据国家标准《中华人民共和国行政区划代码》即 GB2260 标准制定，用以查看各个省地县的行政区划代码，并支持多级联动查询
 
@@ -15,9 +15,34 @@
 
 ## 安装
 
+### npm
+
 ``` bash
 $ npm install china-region
 ```
+
+``` js
+import { getProvinces } from 'china-region'
+
+// 仅仅获取所有行政区域的 JSON 数据
+import province from 'china-region/region.json'
+
+// 仅仅获取省份的 JSON 数据
+import province from 'china-region/province.json'
+```
+
+### CDN
+
+你可以在 CDN 中直接使用它，并调用 API。
+
+``` html
+<script src="https://cdn.jsdelivr.net/npm/china-region"></script>
+<script>
+  const provinces = cn.getProvinces()
+</script>
+```
+
+### 在线调试
 
 你可以在 [china-region](https://npm.devtool.tech/china-region) 中，打开控制台，在线尝试该 API。
 
