@@ -8,7 +8,8 @@
     "node": ">=8.0.0"
   },
   "files": [
-    "dist"
+    "dist",
+    "data"
   ],
   "devDependencies": {
     "@rollup/plugin-json": "^4.1.0",
